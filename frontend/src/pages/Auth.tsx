@@ -19,7 +19,6 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
         `${DATABASE_URL}/api/v1/user/${type === "signin" ? "signin" : "signup"}`,postInputs);
       const jwt = await response.data;
       console.log(jwt);
-      console.log(jwt);
       localStorage.setItem("token", jwt);
       toast.success("Successfully authenticated!", { autoClose: 2000 });
       navigate("/blogs");
@@ -78,7 +77,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
             />
             <LabelledInput
               label="Password"
-              placeholder="Enter Your Strong Password"
+              placeholder="Enter Your Strong Password(Minimum Six Letters)"
               type={"password"}
               onChange={(e) => {
                 setPostInputs({

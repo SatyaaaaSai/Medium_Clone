@@ -23,6 +23,7 @@ userRouter.post("/signup", async (c) => {
     c.status(404);
     return c.json({ error: "Invalid Inputs" });
   }
+  console.log("ksnfksfna,fn");
   const user = await prisma.user.create({
     data: {
       email: body.email,
@@ -31,6 +32,7 @@ userRouter.post("/signup", async (c) => {
   });
 
   const jwt = await sign({ id: user.id }, "secret");
+  console.log("jwt", jwt);
   return c.text(jwt);
 });
 
