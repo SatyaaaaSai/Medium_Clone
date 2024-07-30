@@ -3,6 +3,7 @@ import { FullBlogCard } from "../components/FullBlogCard";
 import { Spinner } from "../components/Spinner";
 import { useBlog } from "../hooks/useblogs";
 import { useParams } from "react-router-dom";
+
 export const Blog = () => {
   const { id } = useParams();
   const { loading, blog } = useBlog({
@@ -26,7 +27,7 @@ export const Blog = () => {
 
   return (
     <div>
-      <FullBlogCard blog={blog} />
+    { blog? <FullBlogCard blog={blog} />:null }
     </div>
   );
 };
